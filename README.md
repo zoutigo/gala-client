@@ -34,3 +34,49 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Deploy on google
+
+### Connexion o gcloud
+
+`gcloud auth login `
+
+### Set project
+
+`gcloud config set project gala-client xxxxx`
+
+### Create repository
+
+`gcloud artifacts repositories create nextjs-gala-client-repo --repository-format=docker --location=europe-west9 --description="Docker repository gala-client"`
+
+### Lister les repos
+
+`gcloud artifacts repositories list`
+
+### push image
+
+`gcloud builds submit --region=global --tag europe-docker.pkg.dev/gala-client/nextjs-gala-repo/nextjs-gala-client-repo/nextjs-docker-gala-image:tag1`
+
+### deploy
+
+- grab the image name in artficat and paste it
+- add the tag at the end
+
+`gcloud run deploy --image=europe-docker.pkg.dev/gala-client/nextjs-gala-repo/nextjs-gala-client-repo/nextjs-docker-gala-image:tag1`
+`
+
+## Make Changes and deploy again
+
+### Change the code and save
+
+### Deploy
+
+` gcloud builds submit --region=global --tag europe-docker.pkg.dev/gala-client/nextjs-gala-repo/nextjs-gala-client-repo/nextjs-docker-gala-image:tag1``
+ `
+
+### Run the same deploy command
+
+`gcloud run deploy --image=europe-docker.pkg.dev/gala-client/nextjs-gala-repo/nextjs-gala-client-repo/nextjs-docker-gala-image:tag1`
+`
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
