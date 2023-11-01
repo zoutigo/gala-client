@@ -9,6 +9,10 @@ export default function Home() {
           Je veux que ça marche bien &nbsp;
           <code className={styles.code}>app/page.tsx</code>
         </p>
+        <p>
+          Une mise à jour de githubactions&nbsp;
+          <code className={styles.code}>app/page.tsx</code>
+        </p>
         <div>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
