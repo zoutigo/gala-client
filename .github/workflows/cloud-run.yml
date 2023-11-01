@@ -35,7 +35,7 @@ jobs:
         gcloud --quiet auth configure-docker
     - name: Build and tag image
       run: |-
-        docker build . --tag "europe-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA"
+        docker build . --region=global --tag "europe-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA"
     - name: Push image to GCR
       run: |-
         docker push europe-docker.pkg.dev/$CLOUD_RUN_PROJECT_ID/$REPO_NAME:$GITHUB_SHA
