@@ -3,14 +3,13 @@ name: nextjs-cloud-run
 on:
   push:
     branches:
-      - master
-      - main
+      - dev
 
 env:
   CLOUD_RUN_PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
   CLOUD_RUN_REGION: europe-west9
   # project-name but it can be anything you want
-  REPO_NAME: nextjs-gala-repo
+  REPO_NAME: nextjs-gala-dev-repo
 
 jobs:
   build-and-deploy:
@@ -47,4 +46,5 @@ jobs:
           --platform managed \
           --region $CLOUD_RUN_REGION \
           --allow-unauthenticated \
-          --quiet
+          --quiet \
+          --member="allUsers" 
