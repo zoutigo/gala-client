@@ -10,7 +10,7 @@ export default function Home() {
           <code className={styles.code}>app/page.tsx</code>
         </p>
         <p>
-          Une mise à jour de githubactions&nbsp;
+          Une mise à jour de githubactions est ce bon&nbsp;
           <code className={styles.code}>app/page.tsx</code>
         </p>
         <div>
