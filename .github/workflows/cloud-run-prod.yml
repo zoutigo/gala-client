@@ -5,7 +5,7 @@ on:
 
 env:
   CLOUD_RUN_PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
-  CLOUD_RUN_REGION: europe-west9
+  CLOUD_RUN_REGION: europe-west1
   REPO_NAME: nextjs-gala-prod-repo
 
 jobs:
