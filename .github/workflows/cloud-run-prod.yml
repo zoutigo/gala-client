@@ -29,20 +29,20 @@ jobs:
 
     - name: Configure Docker for Artifact Registry
       run: |-
-        gcloud auth configure-docker europe-west9-docker.pkg.dev
+        gcloud auth configure-docker europe-west1-docker.pkg.dev
 
     - name: Build and tag image
       run: |-
-        docker build . --tag "europe-west9-docker.pkg.dev/${CLOUD_RUN_PROJECT_ID}/${REPO_NAME}/${REPO_NAME}:${GITHUB_SHA}"
+        docker build . --tag "europe-west1-docker.pkg.dev/${CLOUD_RUN_PROJECT_ID}/${REPO_NAME}/${REPO_NAME}:${GITHUB_SHA}"
 
     - name: Push image to Artifact Registry
       run: |-
-        docker push "europe-west9-docker.pkg.dev/${CLOUD_RUN_PROJECT_ID}/${REPO_NAME}/${REPO_NAME}:${GITHUB_SHA}"
+        docker push "europe-west1-docker.pkg.dev/${CLOUD_RUN_PROJECT_ID}/${REPO_NAME}/${REPO_NAME}:${GITHUB_SHA}"
 
     - name: Deploy
       run: |-
         gcloud run deploy $REPO_NAME \
-          --image "europe-west9-docker.pkg.dev/${CLOUD_RUN_PROJECT_ID}/${REPO_NAME}/${REPO_NAME}:${GITHUB_SHA}" \
+          --image "europe-west1-docker.pkg.dev/${CLOUD_RUN_PROJECT_ID}/${REPO_NAME}/${REPO_NAME}:${GITHUB_SHA}" \
           --project $CLOUD_RUN_PROJECT_ID \
           --platform managed \
           --region $CLOUD_RUN_REGION \
